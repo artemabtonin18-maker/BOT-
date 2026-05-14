@@ -17,7 +17,7 @@ NAVALNY_ARREST_DATE = datetime(2021, 1, 17, 0, 0, 0, tzinfo=timezone.utc)
 MORNING_HOUR_UTC = 6
 
 # Токен бота берём из переменной окружения (будет задана в Railway)
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = os.getenv("8993310963:AAGDsM_bU8DyVI3P3PwwDYaW34RhInfRNAs")
 if not BOT_TOKEN:
     raise ValueError("Не задана переменная окружения BOT_TOKEN")
 
