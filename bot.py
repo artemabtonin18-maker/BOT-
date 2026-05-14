@@ -63,9 +63,9 @@ def get_time_since_arrest():
 
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
-    # Сначала отправляем видео
-video = FSInputFile("start_video.mp4")
-await message.answer_video(video)
+    # Сначала отправляем звуковой файл
+audio = FSInputFile("start_sound.mp3")
+await message.answer_audio(audio)
 
     # Затем подписываем и отправляем текстовое сообщение
     await add_subscriber(message.chat.id)
