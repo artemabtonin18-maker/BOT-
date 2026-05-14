@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, timezone
 import aiosqlite
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
+from aiogram.types import FSInputFile
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO)
@@ -62,6 +63,11 @@ def get_time_since_arrest():
 
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
+    # Сначала отправляем звуковой файл
+    audio = FSInputFile("start_sound.mp3")
+    await message.answer_audio(audio)
+
+    # Затем подписываем и отправляем текстовое сообщение
     await add_subscriber(message.chat.id)
     days, hours, minutes, secs = get_time_since_arrest()
     text = (
